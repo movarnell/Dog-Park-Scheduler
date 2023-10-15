@@ -1,5 +1,5 @@
 # TypeScript Conversion Project - This Project was Re-Written with TypeScript.
-In this repo converted the original project whose repo is https://github.com/movarnell/townhomedogpark as a Typescript project. It is now the "live" version:
+In this repo converted the original project to a Typescript project. It is now the "live" version:
 
 # 15th Place Townhome Dog Park Scheduler!
 [Screenshot of Homepage](https://github.com/movarnell/dogparktotypescript/assets/37854896/89c84556-c0f0-4512-b343-18c996fcdd24)
