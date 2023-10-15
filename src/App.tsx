@@ -12,12 +12,13 @@ import axios from "axios";
 import { User } from "./Components/User";
 
 
+
 function App() {
   const [users, setUsers] = useState<User[]>([]);
 
-  useEffect(() => {
-    fetchUsers();
-  });
+useEffect(() => {
+  getUsers();
+}, []);
 
   async function fetchUsers(): Promise<User[]> {
     try {

@@ -74,7 +74,7 @@ export default function TodaysSchedule({
           )}
         </div>
         {filteredUsers.map((user) => (
-          <div className='col-sm-12 title2'>
+          <div className='col-sm-12 title2' key={user.id}>
             <div className='card shadow mt-2 rounded-3' key={user.id}>
               <div className='card-body'>
                 <button
