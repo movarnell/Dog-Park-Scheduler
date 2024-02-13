@@ -62,7 +62,7 @@ useEffect(() => {
   }
 
   function deleteUser(userId: any) {
-    console.log("file: App.js:58 ~ deleteUser ~ userId:", userId);
+    console.log("userId passed for Delete:", userId);
     axios
       .delete(DELETE_FILE + userId)
       .then((response: { data: any }) => {
@@ -70,6 +70,7 @@ useEffect(() => {
       })
       .then(() => {
         setUsers(users.filter((user) => user.id !== userId));
+        console.log("User Deleted");
       })
       .catch((error: any) => {
         console.log(error);

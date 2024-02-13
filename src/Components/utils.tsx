@@ -47,4 +47,9 @@ import { format, addHours } from "date-fns";
 	 return false;
    }
 
-   export { todaysUsers, sortUsers, formatDate, formatTime, userNxtHrTime };
+   function getCurrentTime() {
+	return format(new Date(), "h:mm a");
+	  }
+
+
+   export { todaysUsers, sortUsers, formatDate, formatTime, userNxtHrTime, getCurrentTime};

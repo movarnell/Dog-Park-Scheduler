@@ -1,9 +1,9 @@
-import {addHours } from "date-fns";
+import {addHours, set } from "date-fns";
 import { useEffect } from "react";
 import { User } from "./User";
 import InfoIcon from "./Icons/InfoIcon";
 import WarningIcon from "./Icons/WarningIcon";
-import { sortUsers, formatTime, userNxtHrTime, todaysUsers } from "./utils";
+import { sortUsers, formatTime, userNxtHrTime, todaysUsers, getCurrentTime} from "./utils";
 
 
 // Main component for displaying today's schedule
@@ -36,13 +36,21 @@ export default function TodaysSchedule({
   const usersNxtHrCt = nextHrUsers.length;
   const filteredUsers = sortUsers(todaySchedule);
   const usersNxtHr = sortUsers(nextHrUsers);
- 
+
+  let currentTime = getCurrentTime();
+
+  setInterval(() => {
+  currentTime = getCurrentTime();
+  console.log(currentTime);
+  } , 60_000);
+    
 
   return (
     <>
       <div className='row ms-2 me-2'>
         <div className='currentUsers'>
           <h2 className='title2 text-center'>Today's Dogs</h2>
+          <h4 className='title2 text-center'>It is currently: {currentTime}</h4>
           <h5 className='title2 text-center'>
             Dogs in Next Hour: {usersNxtHrCt}
           </h5>

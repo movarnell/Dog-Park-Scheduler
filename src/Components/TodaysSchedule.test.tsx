@@ -1,7 +1,6 @@
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import TodaysSchedule from "./TodaysSchedule";
 import { User } from "./User";
-import { findAllByTestId } from "@testing-library/react";
 
 describe("TodaysSchedule", () => {
   const mockDeleteUser = jest.fn();
