@@ -61,7 +61,7 @@ export default function Schedule({
                     Bringing:<span className='fw-bold'> {user.dogName}</span>
                   </h5>
                   <h6 className='card-subtitle mb-2'>
-                    {formatDate(user.date)}
+                    {formatDate(new Date(user.date))}
                   </h6>
 
                   {user.friendly ? (

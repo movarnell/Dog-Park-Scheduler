@@ -70,7 +70,7 @@ export default function TodaysSchedule({
                 ></button>
                 <h5 className='card-title fw-bold'>{user.name} is bringing</h5>
                 <h5 className='mb-2 fw-bold'>{user.dogName}</h5>
-                <h6 className='card-text'>Today at {formatTime(user.date)}</h6>
+                <h6 className='card-text'>Today at {formatTime(new Date(user.date))}</h6>
 
                 {userNxtHrTime(user) ? (
                   <h6 className='alert alert-info title2 border border-2 border-info fw-bold m-1 p-1 text-center'>
