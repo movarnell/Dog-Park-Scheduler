@@ -43,7 +43,7 @@ export default function TodaysSchedule({
   setTimeout(() => {
   setCurrentTime(getCurrentTime());
   console.log(currentTime);
-  } , 29_000);
+  } , 1_000);
     
 
   return (

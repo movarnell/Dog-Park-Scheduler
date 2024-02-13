@@ -48,7 +48,7 @@ import { format, addHours } from "date-fns";
    }
 
    function getCurrentTime() {
-	return format(new Date(), "h:mm a");
+	return format(new Date(), "h:mm:ss a");
 	  }
 
 
