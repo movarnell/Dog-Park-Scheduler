@@ -1,8 +1,9 @@
-import { format, addHours } from "date-fns";
+import {addHours } from "date-fns";
 import { User } from "./User";
 import InfoIcon from "./Icons/InfoIcon";
 import WarningIcon from "./Icons/WarningIcon";
-import { sortUsers } from "./utils";
+import { sortUsers, formatTime, userNxtHrTime, todaysUsers } from "./utils";
+
 
 // Main component for displaying today's schedule
 export default function TodaysSchedule({
@@ -14,15 +15,7 @@ export default function TodaysSchedule({
   getUsers: () => void;
 }) {
   
-  // This function filters the users for today's date
-  function todaysUsers(users: User[]) {
-    console.log(users);
-    const today = new Date();
-    return users.filter((user) => {
-      const userTime = new Date(user.date);
-      return userTime.getDate() === today.getDate();
-    });
-  }
+ 
 
   // Getting today's schedule and the users for the next hour
   const todaySchedule = todaysUsers(users);
@@ -39,23 +32,7 @@ export default function TodaysSchedule({
   const usersNxtHrCt = nextHrUsers.length;
   const filteredUsers = sortUsers(todaySchedule);
   const usersNxtHr = sortUsers(nextHrUsers);
-
-  // This function formats the date into a better to read time format
-  function formatTime(time: Date) {
-    const date: Date = new Date(time);
-    return format(date, "h:mm a");
-  }
-
-  const now = new Date();
-
-  // This function sorts through the users to pull out the ones in the next hour for the alert.
-  function userNxtHrTime(user: User) {
-    const userTime: Date = new Date(user.date);
-    const userNxtHr: Date = addHours(userTime, 1);
-    if (now > userTime && now < userNxtHr) {
-      return true;
-    }
-  }
+ 
 
   return (
     <>
@@ -66,7 +43,7 @@ export default function TodaysSchedule({
             Dogs in Next Hour: {usersNxtHrCt}
           </h5>
           {todaysUsers(users).length === 0 ? (
-            <div className='alert alert-secondary title2 shadow border border-1 border-secondary rounded-3 m-1 p-1 text-center'>
+            <div key={0} className='alert alert-secondary title2 shadow border border-1 border-secondary rounded-3 m-1 p-1 text-center'>
               No dogs scheduled for today yet, You should bring your dog!
             </div>
           ) : (
@@ -74,7 +51,7 @@ export default function TodaysSchedule({
           )}
         </div>
         {filteredUsers.map((user) => (
-          <div className='col-sm-12 title2' key={user.id}>
+          <div className='col-sm-12 title2' key={user.id+"dog"}>
             <div className='card shadow mt-2 rounded-3' key={user.id}>
               <div className='card-body'>
                 <button

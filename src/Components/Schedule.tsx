@@ -15,12 +15,8 @@ export default function Schedule({
   deleteUser: (userId: any) => void;
   getUsers: () => void;
 }) {
-  // add useeffect to get users from database
-  useEffect(() => {
-    getUsers();
-  });
 
-  // filter out users that are in the past - at the moment this is not resued anywhere else.
+
   function getFutureUsers(sortedUsers: User[]) {
     const futureUsers: User[] = [];
     const now = new Date();

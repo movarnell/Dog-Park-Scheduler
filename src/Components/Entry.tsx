@@ -9,7 +9,7 @@ export default function Entry({
 	getUsers,
 }: {
 	users: User[];
-	createUser: (data: any) => void;
+	createUser: (data: object) => void;
 	setUsers: (users: User[]) => void;
 	getUsers: () => void;
 }) {
@@ -48,7 +48,7 @@ const handleClose = () => setShowModal(false);
 	onsubmit = (e) => {
 		e.preventDefault();
 		if (!name || !dogName || !date) {
-			alert('You must submitt a name, dog name and date');
+			alert('You must submit a name, dog name and date');
 			return;
 		} else {
 			const newUser: User = {
@@ -60,12 +60,9 @@ const handleClose = () => setShowModal(false);
 				puppy: puppy,
 			};
 			createUser(newUser);
-			clearForm();
+			
 			setShowModal(true);
 	setUsers([...users, newUser]);
-
-
-
 			clearForm();
 		}
 	};
@@ -76,6 +73,7 @@ const handleClose = () => setShowModal(false);
 		setDogName('');
 		setFriendly(false);
 		setPuppy(false);
+		
 	};
 
 	//* Render the entry form for the user to input data. Uses onChange and onSubmit events to update state and create a new user.

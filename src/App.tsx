@@ -16,6 +16,14 @@ import { User } from "./Components/User";
 function App() {
   const [users, setUsers] = useState<User[]>([]);
 
+  const GET_FILE = "https://michaelvarnell.com/dogparkserver/get_users.php";
+  const POST_FILE = "https://michaelvarnell.com/dogparkserver/add_dog.php";
+  const DELETE_FILE = "https://michaelvarnell.com/dogparkserver/delete_user.php";
+  
+  //const GET_FILE = "http://localhost:3000/users/";
+  //const POST_FILE = "http://localhost:3000/users/";
+  //const DELETE_FILE = "http://localhost:3000/users/";
+
 useEffect(() => {
   getUsers();
 }, []);
@@ -23,7 +31,7 @@ useEffect(() => {
   async function fetchUsers(): Promise<User[]> {
     try {
       const response = await axios.get<User[]>(
-        "https://michaelvarnell.com/dogparkserver/get_users.php"
+        GET_FILE
       );
     
       return response.data.map((user) => ({
@@ -44,7 +52,7 @@ useEffect(() => {
 
   function createUser(data: User) {
     axios
-      .post("https://michaelvarnell.com/dogparkserver/add_dog.php", data)
+      .post(POST_FILE, data)
       .then((response: { data: any }) => {
         console.log(response.data);
       })
@@ -56,9 +64,7 @@ useEffect(() => {
   function deleteUser(userId: any) {
     console.log("file: App.js:58 ~ deleteUser ~ userId:", userId);
     axios
-      .delete(
-        "https://michaelvarnell.com/dogparkserver/delete_user.php?id=" + userId
-      )
+      .delete(DELETE_FILE + userId)
       .then((response: { data: any }) => {
         console.log(response.data);
       })
