@@ -43,7 +43,8 @@ import { format, addHours } from "date-fns";
      const userNxtHr: Date = addHours(userTime, 1);
      if (now > userTime && now < userNxtHr) {
        return true;
-     }
+     } 
+	 return false;
    }
 
    export { todaysUsers, sortUsers, formatDate, formatTime, userNxtHrTime };
