@@ -1,5 +1,5 @@
-import {addHours, set } from "date-fns";
-import { useEffect } from "react";
+import {addHours } from "date-fns";
+import { useEffect, useState } from "react";
 import { User } from "./User";
 import InfoIcon from "./Icons/InfoIcon";
 import WarningIcon from "./Icons/WarningIcon";
@@ -17,6 +17,7 @@ export default function TodaysSchedule({
   getUsers: () => void;
 }) {
   
+  const [currentTime, setCurrentTime] = useState(getCurrentTime());
   useEffect(() => {
     getUsers();
   }, []);
@@ -37,12 +38,12 @@ export default function TodaysSchedule({
   const filteredUsers = sortUsers(todaySchedule);
   const usersNxtHr = sortUsers(nextHrUsers);
 
-  let currentTime = getCurrentTime();
 
-  setInterval(() => {
-  currentTime = getCurrentTime();
+
+  setTimeout(() => {
+  setCurrentTime(getCurrentTime());
   console.log(currentTime);
-  } , 60_000);
+  } , 29_000);
     
 
   return (
