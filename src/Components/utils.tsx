@@ -3,7 +3,7 @@ import { format, addHours } from "date-fns";
 
  // This function filters the users for today's date
   function todaysUsers(users: User[]) {
-    console.log(users);
+    // console.log(users);
     const today = new Date();
     return users.filter((user) => {
       const userTime = new Date(user.date);
@@ -41,7 +41,7 @@ import { format, addHours } from "date-fns";
 		let now = new Date();
      const userTime: Date = new Date(user.date);
      const userNxtHr: Date = addHours(userTime, 1);
-     if (now > userTime && now < userNxtHr) {
+     if (now >= userTime && now <= userNxtHr) {
        return true;
      } 
 	 return false;

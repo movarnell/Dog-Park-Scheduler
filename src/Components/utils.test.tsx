@@ -62,7 +62,7 @@ describe("Utility Functions", () => {
 
   it("checks if user is in the next hour", () => {
     let datePlus30Min = new Date();
-    addHours(datePlus30Min, 0.5);
+    
     const user: User = {
       id: 1,
       name: "User 1",
