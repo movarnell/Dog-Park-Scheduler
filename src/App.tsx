@@ -20,6 +20,7 @@ function App() {
   const POST_FILE = "https://michaelvarnell.com/dogparkserver/add_dog.php";
   const DELETE_FILE = "https://michaelvarnell.com/dogparkserver/delete_user.php";
   
+  //NOTE: The following are for local testing
   //const GET_FILE = "http://localhost:3000/users/";
   //const POST_FILE = "http://localhost:3000/users/";
   //const DELETE_FILE = "http://localhost:3000/users/";
